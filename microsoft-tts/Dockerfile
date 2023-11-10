@@ -2,14 +2,12 @@ ARG BUILD_FROM
 FROM ${BUILD_FROM}
 ARG BUILD_ARCH
 
+ARG MICROSOFT_TTS_VERSION
+
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install Microsoft-tts
 WORKDIR /usr/src
-
-COPY setup.py ./pkg/
-COPY requirements.txt ./pkg/
-ADD ./wyoming-microsoft-tts ./pkg/wyoming-microsoft-tts
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -20,7 +18,8 @@ RUN apt-get update \
     && pip install --no-cache-dir \
         setuptools \
         wheel \
-    && pip install ./pkg \
+    && pip install --no-cache-dir \
+    https://github.com/hugobloem/wyoming-microsoft-tts/archive/refs/tags/${MICROSOFT_TTS_VERSION}.zip \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy files
