@@ -20,4 +20,4 @@ schema:
   debug_logging: bool
   update_voices: bool
 tmpfs: true
-image: "ghcr.io/home-assistant/{arch}-wyoming-microsoft-stt"
+image: "ghcr.io/hugobloem/{arch}-wyoming-microsoft-stt"
