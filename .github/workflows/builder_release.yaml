@@ -1,4 +1,4 @@
-name: Builder
+name: Release Builder
 
 env:
   BUILD_ARGS: 
