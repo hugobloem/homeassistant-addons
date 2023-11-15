@@ -59,6 +59,9 @@ jobs:
   build:
     needs: init
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     if: needs.init.outputs.changed == 'true'
     name: Build ${{ matrix.arch }} ${{ matrix.addon }} add-on
     strategy:
