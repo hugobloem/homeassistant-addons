@@ -1,7 +1,7 @@
 ---
 name: "Microsoft TTS"
 description: "Text to speech using Microsoft Azure"
-version: "1.0.2"
+version: "1.0.3"
 slug: "wyoming_microsoft_tts"
 init: false
 arch:
