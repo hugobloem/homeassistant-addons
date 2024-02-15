@@ -1,7 +1,7 @@
 ---
 name: "Microsoft STT"
 description: "Speech to text using Microsoft Azure"
-version: "1.0.5"
+version: "1.0.6"
 slug: "wyoming_microsoft_stt"
 init: false
 arch:
