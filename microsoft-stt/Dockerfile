@@ -19,7 +19,7 @@ RUN apt-get update \
     setuptools \
     wheel \
     && pip install --no-cache-dir \
-    https://github.com/hugobloem/wyoming-microsoft-stt/archive/refs/tags/${MICROSOFT_STT_VERSION}.zip \
+    https://github.com/hugobloem/wyoming-microsoft-stt/archive/refs/tags/v${MICROSOFT_STT_VERSION}.zip \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy files
