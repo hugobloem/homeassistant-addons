@@ -14,6 +14,12 @@ configuration:
       Download the list of new languages automatically every time the add-on
       starts.  You must also reload the Wyoming integration for Microsoft in Home
       Assistant to see new languages.
+  profanity:
+    name: Profanity
+    description: >-
+      The level of profanity filtering to apply to the speech recognition. Off
+      means no filtering, Masked means the profanity is replaced with asterisks,
+      and Removed means the profanity is removed from the text.
   debug_logging:
     name: Debug logging
     description: >-
