@@ -1,7 +1,7 @@
 ---
 name: "Microsoft TTS"
 description: "Text to speech using Microsoft Azure"
-version: !include version.yaml
+version: !include ./version.yaml
 slug: "wyoming_microsoft_tts"
 init: false
 arch:
