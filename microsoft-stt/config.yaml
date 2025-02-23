@@ -14,6 +14,7 @@ ports:
 options:
   debug_logging: false
   update_languages: true
+  profanity: masked
 schema:
   subscription_key: str
   service_region: str
