@@ -18,7 +18,7 @@ schema:
   subscription_key: str
   service_region: str
   debug_logging: bool
-  update_voices: bool
-  profanity: list("off" | "masked" | "removed")
+  update_languages: bool
+  profanity: list(off|masked|removed)
 tmpfs: true
 image: "ghcr.io/hugobloem/{arch}-wyoming-microsoft-stt"
