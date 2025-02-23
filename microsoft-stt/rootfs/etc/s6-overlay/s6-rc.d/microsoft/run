@@ -3,7 +3,7 @@
 # ==============================================================================
 # Start Microsoft service
 # ==============================================================================
-flags=("--profanity $bashio::config 'profanity'")
+flags=("--profanity $(bashio::config 'profanity')")
 
 if bashio::config.true 'update_languages'; then
     flags+=('--update-languages')
