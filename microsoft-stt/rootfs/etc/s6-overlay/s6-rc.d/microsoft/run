@@ -17,5 +17,4 @@ exec python3 -m wyoming_microsoft_stt \
     --subscription-key "$(bashio::config 'subscription_key')" \
     --service-region "$(bashio::config 'service_region')" \
     --download-dir /data \
-    --profanity "$(bashio::config 'profanity')" \
     ${flags[@]}
