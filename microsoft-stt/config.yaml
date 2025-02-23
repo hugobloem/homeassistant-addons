@@ -13,7 +13,7 @@ ports:
   "10300/tcp": null
 options:
   debug_logging: false
-  update_voices: true
+  update_languages: true
 schema:
   subscription_key: str
   service_region: str
