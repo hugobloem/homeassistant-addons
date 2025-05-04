@@ -8,6 +8,12 @@ configuration:
     name: Service Region
     description: >-
       The region you set up you Speech Service instance in (e.g. uksouth).
+  language:
+    name: Language
+    description: >-
+      The language to use for speech recognition. This should be a BCP-47
+      language tag, such as en-US or fr-FR. You can also pass multiple languages by separating them with a semi-colon. You can find a list of supported
+      languages in the Microsoft documentation, here: https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support?tabs=stt.
   update_languages:
     name: Update languages
     description: >-
