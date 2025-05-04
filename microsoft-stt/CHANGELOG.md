@@ -6,6 +6,9 @@
 
 You can now add multiple languages in the Add-on's configuration and it will automatically transcribe the appropriate language.
 
+### Faster transcription!
+Thanks to @nuzayets the audio is now being transcribed as you're saying it. This will reduce the time spent transcribing your audio into text.
+
 ### 🐛 Bugfixes
 
 - stop stream when last chunk is sent ([#79](https://github.com/hugobloem/wyoming-microsoft-stt/issues/79)) ([4eba565](https://github.com/hugobloem/wyoming-microsoft-stt/commit/4eba5650fa92bb9cc3e7448617412cd82ed861b4))
