@@ -15,14 +15,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         netcat-traditional \
         curl 
-
-ADD https://github.com/hugobloem/wyoming-microsoft-tts/archive/refs/tags/v${MICROSOFT_TTS_VERSION}.zip .
-
-RUN tar -xzf v${MICROSOFT_TTS_VERSION}.zip \
-    && pip install --no-cache-dir \
-        setuptools \
-        wheel \
-    && pip install --no-cache-dir \
+RUN uv pip install --no-cache-dir \
     https://github.com/hugobloem/wyoming-microsoft-tts/archive/refs/tags/v${MICROSOFT_TTS_VERSION}.zip \
     && rm -rf /var/lib/apt/lists/*
 
