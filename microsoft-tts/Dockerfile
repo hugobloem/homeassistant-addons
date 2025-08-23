@@ -21,7 +21,7 @@ WORKDIR /
 COPY rootfs /
 COPY pyproject.toml /
 
-RUN uv sync --locked
+RUN uv sync
 
 HEALTHCHECK --start-period=10m \
 CMD echo '{ "type": "describe" }' \
