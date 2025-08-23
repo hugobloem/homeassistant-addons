@@ -23,6 +23,6 @@ RUN uv sync
 
 HEALTHCHECK --start-period=10m \
 CMD echo '{ "type": "describe" }' \
-    | nc -w 1 localhost 10200 \
+    | nc -w 1 localhost 10300 \
     | grep -q "microsoft" \
     || exit 1
