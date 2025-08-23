@@ -79,14 +79,6 @@ jobs:
           echo "package=$(grep 'wyoming' ./${{ matrix.addon }}/pyproject.toml  | cut -d'"' -f2 | cut -d'=' -f1)" >> $GITHUB_OUTPUT
           echo "version=$(grep 'wyoming' ./${{ matrix.addon }}/pyproject.toml  | cut -d'"' -f2 | cut -d'=' -f3)" >> $GITHUB_OUTPUT
 
-      - name: Update build.yaml
-        uses: fjogeleit/yaml-update-action@main
-        with:
-          valueFile: ./${{ matrix.addon }}/build.yaml
-          propertyPath: 'args.MICROSOFT_STT_VERSION'
-          value: ${{ steps.get_version.outputs.version }}
-          commitChange: false
-
       - name: Update config.yaml
         uses: fjogeleit/yaml-update-action@main
         with:

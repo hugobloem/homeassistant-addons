@@ -4,8 +4,6 @@ ARG BUILD_ARCH
 
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-ARG MICROSOFT_TTS_VERSION
-
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install Microsoft-tts
