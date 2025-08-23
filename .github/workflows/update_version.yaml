@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   push:
    branches:
-    - "dependabot/**"
+    - main
 
 jobs:
   init:
@@ -91,11 +91,12 @@ jobs:
         run: |
           wget https://raw.githubusercontent.com/hugobloem/${{ steps.get_version.outputs.package }}/refs/tags/v${{ steps.get_version.outputs.version }}/CHANGELOG.md --output-document ./${{ matrix.addon }}/CHANGELOG.md
 
-      - name: Commit changes
-        if: needs.init.outputs.changed == 'true'
-        run: |
-          git config --local user.email "github-actions@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "[action][update-versions] ${{ matrix.addon }}"
-          git push
+      - name: Open PR with changes
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: "[action][update-versions] ${{ matrix.addon }}"
+          body: |
+            This PR updates the version of ${{ matrix.addon }} to ${{ steps.get_version.outputs.version }}.
+          base: main
+          branch: update-versions/${{ matrix.addon }}
+          token: ${{ secrets.SCOPED_PAT }}
