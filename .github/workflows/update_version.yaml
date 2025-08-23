@@ -96,7 +96,7 @@ jobs:
 
       - name: Update changelog
         run: |
-          wget https://raw.githubusercontent.com/hugobloem/${{ steps.get_version.outputs.package }}/refs/tags/v${{ steps.get_version.outputs.version }}/CHANGELOG.md -o ./${{ matrix.addon }}/CHANGELOG.md
+          wget https://raw.githubusercontent.com/hugobloem/${{ steps.get_version.outputs.package }}/refs/tags/v${{ steps.get_version.outputs.version }}/CHANGELOG.md --output-document ./${{ matrix.addon }}/CHANGELOG.md
 
       - name: Commit changes
         if: needs.init.outputs.changed == 'true'
@@ -104,5 +104,5 @@ jobs:
           git config --local user.email "github-actions@github.com"
           git config --local user.name "GitHub Action"
           git add .
-          git commit -m "Update version for ${{ matrix.addon }}"
+          git commit -m "[action][update-versions] ${{ matrix.addon }}"
           git push
