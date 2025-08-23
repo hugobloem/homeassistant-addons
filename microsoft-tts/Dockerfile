@@ -15,7 +15,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         netcat-traditional \
         curl 
-RUN uv pip install --no-cache-dir \
+RUN uv pip install --no-cache-dir --system \
     https://github.com/hugobloem/wyoming-microsoft-tts/archive/refs/tags/v${MICROSOFT_TTS_VERSION}.zip \
     && rm -rf /var/lib/apt/lists/*
 
