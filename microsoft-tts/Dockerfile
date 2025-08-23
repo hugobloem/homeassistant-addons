@@ -18,7 +18,7 @@ RUN apt-get update \
 
 ADD https://github.com/hugobloem/wyoming-microsoft-tts/archive/refs/tags/v${MICROSOFT_TTS_VERSION}.zip .
 
-RUN unzip v${MICROSOFT_TTS_VERSION}.zip \
+RUN tar -xzf v${MICROSOFT_TTS_VERSION}.zip \
     && pip install --no-cache-dir \
         setuptools \
         wheel \
