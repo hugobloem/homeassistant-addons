@@ -100,3 +100,4 @@ jobs:
           base: main
           branch: update-versions/${{ matrix.addon }}
           token: ${{ secrets.SCOPED_PAT }}
+          delete-branch: true
