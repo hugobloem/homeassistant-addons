@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   push:
    branches:
-    - main
+    - dependabot/*
 
 jobs:
   init:
