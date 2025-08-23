@@ -15,16 +15,16 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         netcat-traditional \
         curl 
-RUN uv pip install --no-cache-dir --system \
-    https://github.com/hugobloem/wyoming-microsoft-tts/archive/refs/tags/v${MICROSOFT_TTS_VERSION}.zip \
-    && rm -rf /var/lib/apt/lists/*
-
+        
 # Copy files
 WORKDIR /
 COPY rootfs /
+COPY pyproject.toml /
+
+RUN uv sync --locked
 
 HEALTHCHECK --start-period=10m \
-    CMD echo '{ "type": "describe" }' \
-        | nc -w 1 localhost 10200 \
-        | grep -q "microsoft" \
-        || exit 1
+CMD echo '{ "type": "describe" }' \
+    | nc -w 1 localhost 10200 \
+    | grep -q "microsoft" \
+    || exit 1
