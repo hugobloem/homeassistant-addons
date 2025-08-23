@@ -62,6 +62,7 @@ jobs:
     if: needs.init.outputs.changed == 'true'
     name: Update ${{ matrix.addon }} build files
     strategy:
+      max-parallel: 1
       matrix:
         addon: ${{ fromJson(needs.init.outputs.changed_addons) }}
     outputs:
