@@ -1,6 +1,6 @@
 name: Microsoft STT
 description: Speech to text using Microsoft Azure
-version: 1.3.3
+version: 1.3.0
 slug: wyoming_microsoft_stt
 init: false
 arch:
