@@ -3,6 +3,9 @@ name: Update versions
 env:
   MONITORED_FILES: "pyproject.toml"
 
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
   pull_request:
