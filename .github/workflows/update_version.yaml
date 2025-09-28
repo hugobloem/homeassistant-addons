@@ -4,7 +4,6 @@ env:
   MONITORED_FILES: "pyproject.toml"
 
 permissions:
- write:
   contents: write
 
 on:
