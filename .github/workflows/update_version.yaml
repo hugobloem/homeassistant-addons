@@ -3,6 +3,9 @@ name: Update versions
 env:
   MONITORED_FILES: "pyproject.toml"
 
+permissions:
+ write:
+
 on:
   workflow_dispatch:
   pull_request:
@@ -96,6 +99,5 @@ jobs:
         run: |
           git config --global user.name 'Hugo Bloem'
           git config --global user.email 'hugobloem@users.noreply.github.com'
-          git remote set-url origin https://x-access-token:${{ secrets.SCOPED_PAT }}@github.com/${{ github.repository }}
           git commit -am "Update version"
           git push
