@@ -3,11 +3,12 @@ name: Update versions
 env:
   MONITORED_FILES: "pyproject.toml"
 
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
-  push:
-   branches:
-    - dev
+  pull_request:
 
 jobs:
   init:
@@ -19,7 +20,7 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v5.0.0
-
+        
       - name: Get changed files
         id: changed_files
         uses: jitterbit/get-changed-files@v1
@@ -72,6 +73,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v5.0.0
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Get package version from pyproject.toml
         id: get_version
@@ -91,13 +94,9 @@ jobs:
         run: |
           wget https://raw.githubusercontent.com/hugobloem/${{ steps.get_version.outputs.package }}/refs/tags/v${{ steps.get_version.outputs.version }}/CHANGELOG.md --output-document ./${{ matrix.addon }}/CHANGELOG.md
 
-      - name: Open PR with changes
-        uses: peter-evans/create-pull-request@v7
-        with:
-          title: "[action][update-versions] ${{ matrix.addon }}"
-          body: |
-            This PR updates the version of ${{ matrix.addon }} to ${{ steps.get_version.outputs.version }}.
-          base: dev
-          branch: update-versions/${{ matrix.addon }}
-          token: ${{ secrets.SCOPED_PAT }}
-          delete-branch: true
+      - name: Commit changes
+        run: |
+          git config --global user.name 'Hugo Bloem'
+          git config --global user.email 'hugobloem@users.noreply.github.com'
+          git commit -am "Update version"
+          git push
