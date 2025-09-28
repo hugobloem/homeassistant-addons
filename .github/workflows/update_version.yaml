@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   push:
    branches:
-    - main
+    - dev
 
 jobs:
   init:
@@ -97,7 +97,7 @@ jobs:
           title: "[action][update-versions] ${{ matrix.addon }}"
           body: |
             This PR updates the version of ${{ matrix.addon }} to ${{ steps.get_version.outputs.version }}.
-          base: main
+          base: dev
           branch: update-versions/${{ matrix.addon }}
           token: ${{ secrets.SCOPED_PAT }}
           delete-branch: true
