@@ -6,8 +6,6 @@ env:
 on:
   workflow_dispatch:
   pull_request:
-   branches:
-    - "dependabot/pip/*"
   push:
    branches:
     - "dependabot/pip/*"
