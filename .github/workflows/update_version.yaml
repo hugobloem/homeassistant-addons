@@ -23,7 +23,7 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v5.0.0
-
+        
       - name: Get changed files
         id: changed_files
         uses: jitterbit/get-changed-files@v1
@@ -76,6 +76,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v5.0.0
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Get package version from pyproject.toml
         id: get_version
