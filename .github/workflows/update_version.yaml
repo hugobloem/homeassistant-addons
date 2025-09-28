@@ -12,7 +12,7 @@ on:
   pull_request:
   push:
    branches:
-    - "dependabot/pip/*"
+    - "dependabot/pip/**"
 
 jobs:
   init:
