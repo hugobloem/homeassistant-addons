@@ -5,6 +5,7 @@ env:
 
 permissions:
  write:
+  contents: write
 
 on:
   workflow_dispatch:
