@@ -7,10 +7,10 @@ on:
   workflow_dispatch:
   pull_request:
    branches:
-    - dependabot/pip/*
+    - "dependabot/pip/*"
   push:
    branches:
-    - dependabot/pip/*
+    - "dependabot/pip/*"
 
 jobs:
   init:
