@@ -16,5 +16,10 @@ exec uv run -m wyoming_microsoft_tts \
     --uri "tcp://0.0.0.0:10200" \
     --subscription-key "$(bashio::config 'subscription_key')" \
     --service-region "$(bashio::config 'service_region')" \
+    --rate "$(bashio::config 'rate')" \
+    --pitch "$(bashio::config 'pitch')" \
+    --volume "$(bashio::config 'volume')" \
+    --style "$(bashio::config 'style')" \
+    --style-degree "$(bashio::config 'style_degree')" \
     --download-dir /data \
     ${flags[@]}
