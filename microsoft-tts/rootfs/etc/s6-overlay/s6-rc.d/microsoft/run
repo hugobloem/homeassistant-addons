@@ -12,14 +12,29 @@ if bashio::config.true 'debug_logging'; then
     flags+=('--debug')
 fi
 
+if bashio::config.exists 'rate'; then
+    flags+=("--rate $(bashio::config 'rate')")
+fi
+
+if bashio::config.exists 'pitch'; then
+    flags+=("--pitch $(bashio::config 'pitch')")
+fi
+
+if bashio::config.exists 'volume'; then
+    flags+=("--volume $(bashio::config 'volume')")
+fi
+
+if bashio::config.exists 'style'; then
+    flags+=("--style $(bashio::config 'style')")
+fi
+
+if bashio::config.exists 'style_degree'; then
+    flags+=("--style-degree $(bashio::config 'style_degree')")
+fi
+
 exec uv run -m wyoming_microsoft_tts \
     --uri "tcp://0.0.0.0:10200" \
     --subscription-key "$(bashio::config 'subscription_key')" \
     --service-region "$(bashio::config 'service_region')" \
-    --rate "$(bashio::config 'rate')" \
-    --pitch "$(bashio::config 'pitch')" \
-    --volume "$(bashio::config 'volume')" \
-    --style "$(bashio::config 'style')" \
-    --style-degree "$(bashio::config 'style_degree')" \
     --download-dir /data \
     ${flags[@]}
