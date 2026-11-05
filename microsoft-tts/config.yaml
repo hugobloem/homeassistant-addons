@@ -1,6 +1,6 @@
 name: Microsoft TTS
 description: Text to speech using Microsoft Azure
-version: 1.4.5
+version: 1.4.6
 slug: wyoming_microsoft_tts
 init: false
 arch:
